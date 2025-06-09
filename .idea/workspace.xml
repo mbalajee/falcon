@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0355e7e8-9987-40ae-a31a-ed3535718bd3" name="Changes" comment="" />
+    <list default="true" id="0355e7e8-9987-40ae-a31a-ed3535718bd3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/threed/laser_device_model.glb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/three-scene.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/three-scene.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,6 +38,8 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "DefaultHtmlFileTemplate": "HTML File",
+    "JavaScript Debug.about.html.executor": "Run",
+    "JavaScript Debug.contact.html.executor": "Run",
     "JavaScript Debug.index.html.executor": "Run",
     "JavaScript Debug.products.html.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
@@ -53,6 +62,7 @@
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/images" />
+      <recent name="$PROJECT_DIR$/threed" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -70,7 +80,7 @@
       <option name="presentableId" value="Default" />
       <updated>1745184801967</updated>
       <workItem from="1745184802969" duration="551000" />
-      <workItem from="1749347725640" duration="10331000" />
+      <workItem from="1749347725640" duration="12616000" />
     </task>
     <servers />
   </component>

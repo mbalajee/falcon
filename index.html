@@ -5,13 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Falcon Electro Optics</title>
     <link rel="stylesheet" href="css/styles.css">
-    <style>
-        #three-container {
-            width: 100%;
-            height: 300px;
-            margin: 40px 0;
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -32,7 +25,7 @@
             </nav>
         </div>
         <div class="hero-content">
-            <h1>Welcome to Falcon Electro Optics</h1>
+            <h1>Falcon Electro Optics</h1>
             <p>Innovative solutions in electro-optical technology</p>
             <a href="contact.html" class="cta-button">Contact Us</a>
         </div>
@@ -42,7 +35,12 @@
         <section class="three-js-demo">
             <h2>Interactive 3D Demo</h2>
             <p>Experience our technology in 3D. Interact with the model below by clicking and dragging to rotate.</p>
-            <div id="three-container"></div>
+            <div class="demo-container">
+                <div id="three-container"></div>
+                <div class="image-container">
+                    <img src="images/laser_device.png" alt="Laser Device" class="device-image">
+                </div>
+            </div>
         </section>
 
         <section class="features">
@@ -87,6 +85,7 @@
     <!-- Three.js Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.min.js"></script>
 
     <!-- Custom Scripts -->
     <script src="js/script.js"></script>

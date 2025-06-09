@@ -29,10 +29,20 @@ document.addEventListener('DOMContentLoaded', function() {
     const ambientLight = new THREE.AmbientLight(0x404040, 2);
     scene.add(ambientLight);
 
-    // Add directional light
+    // Add directional light from the front
     const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-    directionalLight.position.set(1, 1, 1);
+    directionalLight.position.set(0, 1, 2);
     scene.add(directionalLight);
+
+    // Add directional light from the back
+    const backLight = new THREE.DirectionalLight(0xffffff, 0.5);
+    backLight.position.set(0, 1, -2);
+    scene.add(backLight);
+
+    // Add directional light from the side
+    const sideLight = new THREE.DirectionalLight(0xffffff, 0.5);
+    sideLight.position.set(2, 1, 0);
+    scene.add(sideLight);
 
     // Add a responsive resize handler
     window.addEventListener('resize', function() {
@@ -41,29 +51,51 @@ document.addEventListener('DOMContentLoaded', function() {
         renderer.setSize(container.clientWidth, container.clientHeight);
     });
 
-    // Create a geometry (cube)
-    const geometry = new THREE.BoxGeometry(2, 2, 2);
+    // Create a variable to store the loaded model
+    let model;
 
-    // Create materials with different colors for each face
-    const materials = [
-        new THREE.MeshPhongMaterial({ color: 0xff0000 }), // Red
-        new THREE.MeshPhongMaterial({ color: 0x00ff00 }), // Green
-        new THREE.MeshPhongMaterial({ color: 0x0000ff }), // Blue
-        new THREE.MeshPhongMaterial({ color: 0xffff00 }), // Yellow
-        new THREE.MeshPhongMaterial({ color: 0xff00ff }), // Magenta
-        new THREE.MeshPhongMaterial({ color: 0x00ffff })  // Cyan
-    ];
+    // Create a loader for GLB files
+    const loader = new THREE.GLTFLoader();
 
-    // Create a mesh with the geometry and materials
-    const cube = new THREE.Mesh(geometry, materials);
-    scene.add(cube);
+    // Load the GLB model
+    loader.load(
+        // Resource URL
+        'threed/laser_device_model.glb',
 
-    // Add a wireframe to the cube
-    const wireframe = new THREE.LineSegments(
-        new THREE.EdgesGeometry(geometry),
-        new THREE.LineBasicMaterial({ color: 0x000000, linewidth: 2 })
+        // Called when the resource is loaded
+        function(gltf) {
+            model = gltf.scene;
+
+            // Center the model
+            const box = new THREE.Box3().setFromObject(model);
+            const center = box.getCenter(new THREE.Vector3());
+            model.position.x = -center.x;
+            model.position.y = -center.y;
+            model.position.z = -center.z;
+
+            // Scale the model to fit in view
+            const size = box.getSize(new THREE.Vector3());
+            const maxDim = Math.max(size.x, size.y, size.z);
+            const scale = 3 / maxDim;
+            model.scale.set(scale, scale, scale);
+
+            // Add the model to the scene
+            scene.add(model);
+
+            // Adjust camera position for better view
+            camera.position.z = 5;
+        },
+
+        // Called while loading is progressing
+        function(xhr) {
+            console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+        },
+
+        // Called when loading has errors
+        function(error) {
+            console.error('An error happened while loading the model:', error);
+        }
     );
-    cube.add(wireframe);
 
     // Add orbit controls
     const controls = new THREE.OrbitControls(camera, renderer.domElement);
@@ -111,10 +143,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // Update controls
         controls.update();
 
-        // Auto-rotate the cube when not interacting
-        if (autoRotate) {
-            cube.rotation.x += 0.01;
-            cube.rotation.y += 0.01;
+        // Auto-rotate the model when not interacting
+        if (autoRotate && model) {
+            model.rotation.y += 0.01;
         }
 
         // Render the scene

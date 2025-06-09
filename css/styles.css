@@ -126,7 +126,7 @@ nav ul li a:hover {
     justify-content: center;
     text-align: center;
     color: #fff;
-    padding: 40px;
+    padding: 10px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
@@ -206,13 +206,43 @@ nav ul li a:hover {
     margin: 0 auto 30px;
 }
 
-#three-container {
+.demo-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     max-width: 1200px;
     margin: 0 auto;
+    gap: 30px;
+}
+
+#three-container {
+    flex: 1;
+    min-width: 0;
+    height: 300px;
     border-radius: 5px;
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     background-color: #fff;
+}
+
+.image-container {
+    flex: 1;
+    min-width: 0;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.device-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    padding: 10px;
 }
 
 .about-preview h2 {
@@ -1030,12 +1060,26 @@ footer {
         padding: 20px 5%;
     }
 
+    .top-section {
+        height: auto;
+        min-height: 170px;
+        flex-wrap: wrap;
+    }
+
+    .hero-content {
+        height: auto;
+        min-height: 50vh;
+        padding: 20px 20px;
+    }
+
     nav ul {
         justify-content: center;
+        flex-wrap: wrap;
+        padding: 10px 0;
     }
 
     nav ul li {
-        margin: 0 15px;
+        margin: 5px 10px;
     }
 
     .hero h1 {
@@ -1119,5 +1163,19 @@ footer {
     .custom-alert {
         width: 90%;
         min-width: auto;
+    }
+
+    /* Three.js demo responsive */
+    .demo-container {
+        flex-direction: column;
+    }
+
+    #three-container {
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .image-container {
+        width: 100%;
     }
 }
