@@ -206,16 +206,9 @@ nav ul li a:hover {
     margin: 0 auto 30px;
 }
 
-.demo-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+#three-container {
     max-width: 1200px;
     margin: 0 auto;
-    gap: 30px;
-}
-
-#three-container {
     flex: 1;
     min-width: 0;
     height: 300px;
